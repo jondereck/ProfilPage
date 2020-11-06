@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<title>Profile Page </title>
+
+
+	<head>
+
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" >
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+<style>
+	*{
+	font-family: arial;
+	}
+	html, body{margin: 0; padding: 0;}
+	/* table{
+		background-color: pink;
+		border-radius: 4px;
+		box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.7), 0 6px 10px 0 rgba(0, 0, 0, 0.7);
+		border: 1px black;
+	} */
+	th{
+		font-size: 13px;
+		width: 109px;
+		color: black;
+	}
+	td{
+		font-size: 13px;
+		text-align: center;
+		color: black;
+	}
+	#table_wrapper{
+		padding: 10px;
+	}
+	input{
+		height: 15px;
+	}
+	
+	.wrapper{
+		padding: 10px;
+		width: 50%;
+		margin-left: 25%;
+		margin-bottom: 20px;
+		margin-top: 20px;
+		border-radius: 5px;
+		background-color: pink;
+		box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.7), 0 6px 10px 0 rgba(0, 0, 0, 0.7);
+	}
+	#fname, #lname, #mname{
+		padding: 20px;
+		border-radius: 20px;
+		width: 100%;
+		margin: 5px;
+	}
+	 #email{
+		padding: 20px;
+		border-radius: 20px;
+		width: 100%;
+		margin: 5px;
+	}
+	
+	#address{
+		padding: 20px;
+		border-radius: 20px;
+		width: 100%;
+		height: 50%;
+		margin: 5px;
+	}
+	#bdate{
+		padding: 15px;
+		border-radius: 20px;
+		width: 50%;
+		margin: 5px;
+	}
+	#sex{
+		padding: 10px;
+		border-radius: 20px;
+		width: 50%;
+		margin: 5px;
+	}
+	#age{
+		padding: 20px;
+		border-radius: 20px;
+		width: 20%;
+		margin: 5px;
+	}
+	#btn_submit{
+		padding: 5px;
+		margin: 20px;
+		width: 100px;
+		border-radius: 5px;
+	
+		font-weight: bold;
+		font-size: 15px;
+	}
+	footer{
+		background-color: #101820ff;
+		padding: 20px;
+		color: gray;
+	}
+
+	</style>
+
+
+<!-------------CONTACT------------>
+<section id="contact">
+	<div class="container">
+	  <h1>PROFILE PAGE</h1>
+	  <div class="row">
+		<div class="col-md-6">
+		  <form class="contact-form">
+			<div class="form-group">
+			<input type="text" class="form-control" id="lname"   placeholder="Last Name">   
+		  </div>
+		  <div class="form-group">
+			<input type="text" class="form-control" id="fname"   placeholder="First Name">   
+		  </div>
+		  <div class="form-group">
+			<input type="text" class="form-control" id="mname"   placeholder="Middle Name">   
+		  </div>
+		 
+		  <div class="form-group">
+			<input type="email" class="form-control"  id="email" placeholder="Email">          
+		  </div>
+		  <div class="form-group">
+			<textarea class="form-control "   id="address" rows="3" placeholder="Complete Address"></textarea> 
+		  </div>
+		  <button type="button" class="btn btn-primary"onclick="myFunction()" id="btn_submit">SUBMIT</button>
+		
+		   </form>
+	  </div>
+		  <div class="col-md-6 contact-info">
+			<form class="contact-form">
+			
+			  <div class="form-group">
+				<input type="number" class="form-control" id="age"  placeholder="Age">          
+			  </div>
+			  <div class="form-group">
+				<label style="margin-left: 5px; color: black">Birthdate</label> 
+				<input type="date" class="form-control"   id="bdate" placeholder="Birthday">          
+			  </div>
+
+			  <div class="form-group">
+				<label style="margin-left: 5px; color: black">Sex</label> <br>
+				
+				<select id="sex">
+					<option value="">Choose</option>
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>    
+				</select>        
+			  </div>
+			 
+			   </form>
+  </div><div id="wrapper"><center>
+	<table id="keywords"  border="1" cellpadding="5px">
+		<h1>Result</h1>
+	 
+
+		<thead>
+		<th>LAST NAME</th>
+		<th>FIRST NAME</th>
+		<th>MIDDLE NAME</th>
+		<th>ADDRESS</th>
+		<th>EMAIL</th>
+		<th>BIRTHDATE</th>
+		<th>SEX</th>
+		<th>AGE</th>
+	</thead>
+	<tr>
+		<td id="result_slname"></td>
+		<td id="result_sfname"></td>
+		<td id="result_smname"></td>
+		<td id="result_saddress"></td>
+		<td id="result_semail"></td>
+		<td id="result_sbdate"></td>
+		<td id="result_ssex"></td>
+		<td id="result_sage"></td> 
+	</tr>
+	</table>
+</div>
+
+  </section>
+
+  <!-- Site footer -->
+  <footer class="site-footer">
+	<div class="container">
+	  <div class="row">
+		<!-- <div class="col-sm-12 col-md-6">
+		  <h6>About</h6>
+		  <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+		</div> -->
+
+	
+
+		<div class="col-xs-6 col-md-4">
+		  <h6>Developer: Jon Dereck DG. Nifas</h6>
+		  <!-- <ul class="footer-links">
+			<li><a href="http://scanfcode.com/about/">About Us</a></li>
+			<li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+			<li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+			<li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+			<li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+		  </ul> -->
+		</div>
+	  </div>
+	  <hr>
+	</div>
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-8 col-sm-6 col-xs-12">
+		  <p class="copyright-text"> &copy; For Lab activity Module 3 in Web System
+	   <a href="#"></a>.
+		  </p>
+		</div>
+
+		<div class="col-md-4 col-sm-6 col-xs-12">
+		  <ul class="social-icons">
+			<a href="https://www.facebook.com/gwattssss/" target = "blank" class="fa fa-facebook"></a>
+			
+		  </ul>
+		</div>
+	  </div>
+	</div>
+</footer>
+<script>
+function myFunction() {
+var slname = document.getElementById('lname').value;
+var sfname = document.getElementById('fname').value;
+var smname = document.getElementById('mname').value;
+var saddress = document.getElementById('address').value;
+var semail = document.getElementById('email').value;
+var sbdate = document.getElementById('bdate').value;
+var ssex = document.getElementById('sex').value;
+var sage = document.getElementById('age').value;
+document.getElementById('result_slname').innerHTML = slname;
+document.getElementById('result_sfname').innerHTML = sfname;
+document.getElementById('result_smname').innerHTML = smname;
+document.getElementById('result_saddress').innerHTML = saddress;
+document.getElementById('result_semail').innerHTML = semail;
+document.getElementById('result_sbdate').innerHTML = sbdate;
+document.getElementById('result_ssex').innerHTML = ssex;
+document.getElementById('result_sage').innerHTML = sage;
+}
+</script>
+</body>
+</html>
